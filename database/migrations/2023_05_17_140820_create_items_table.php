@@ -21,9 +21,10 @@ return new class extends Migration
             $table->string('title');
             $table->longText('notes')->nullable();
             $table->double('price');
+            $table->double('price_of_sale');
             $table->double('qty')->nullable();
             $table->double('allowed_qty')->nullable();
-            $table->string('file')->nullable();
+            $table->string('image')->nullable();
             $table->enum('status', ['new', 'used', 'expired']);
             $table->boolean('deleted')->default(0);
             $table->timestamps();

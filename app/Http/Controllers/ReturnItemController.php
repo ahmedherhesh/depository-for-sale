@@ -43,7 +43,7 @@ class ReturnItemController extends MasterController
         if ($request->q)
             $returnedItems->whereHas('item', function ($query) use ($request) {
                 $query->where('title', 'LIKE', '%' . $request->q . '%');
-            })->orWhere('recipient_name', 'LIKE', '%' . $request->q . '%');
+            })->orWhere('customer_name', 'LIKE', '%' . $request->q . '%');
 
         if (!$this->isAdmin())
             $returnedItems = $returnedItems->allowed();
@@ -92,25 +92,28 @@ class ReturnItemController extends MasterController
         $returnedItem = $returnedItem->first();
         if (!$item || !$returnedItem)
             return redirect()->back()->with('failed', 'هذا المنتج غير متوفر او انك لا تملك صلاحية الوصول له');
-        if ($item && $item->status == $returnedItem->status)
-            $item->update(['qty' => $item->qty + $returnedItem->qty]);
-        else
-            $item = Item::create([
-                'user_id' => $user->id,
-                'cat_id' => $item->cat_id,
-                'sub_cat_id' => $item->sub_cat_id,
-                'company_id' => $item->company_id,
-                'depot_id' => $item->depot_id,
-                'title' => $item->title,
-                'notes' => $item->notes,
-                'price' => $item->price,
-                'qty' => $returnedItem->qty,
-                'allowed_qty' => $item->allowed_qty,
-                'status' => $returnedItem->status,
-                'date' => date('Y-m-d'),
-            ]);
-        $returnedItem->update(['in_stock' => 1]);
-        return redirect()->back()->with('success', 'تم اضافة المنتج للمخزن بنجاح');
+        if (!$returnedItem->in_stock) {
+            if ($item && $item->status == $returnedItem->status)
+                $item->update(['qty' => $item->qty + $returnedItem->qty]);
+            else
+                $item = Item::create([
+                    'user_id' => $user->id,
+                    'cat_id' => $item->cat_id,
+                    'sub_cat_id' => $item->sub_cat_id,
+                    'company_id' => $item->company_id,
+                    'depot_id' => $item->depot_id,
+                    'title' => $item->title,
+                    'notes' => $item->notes,
+                    'price' => $item->price,
+                    'qty' => $returnedItem->qty,
+                    'allowed_qty' => $item->allowed_qty,
+                    'status' => $returnedItem->status,
+                    'date' => date('Y-m-d'),
+                ]);
+            $returnedItem->update(['in_stock' => 1]);
+            return redirect()->back()->with('success', 'تم اضافة المنتج للمخزن بنجاح');
+        }
+        return redirect()->back();
     }
     public function getReturnedItem($id)
     {

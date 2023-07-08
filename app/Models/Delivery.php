@@ -12,9 +12,11 @@ class Delivery extends Model
         'user_id',
         'item_id',
         'depot_id',
-        'recipient_name',
-        'side_name',
+        'customer_name',
+        'customer_phone',
         'notes',
+        'price',
+        'price_of_sale',
         'status',
         'qty',
     ];

@@ -49,7 +49,7 @@
                                     <th>عنوان المنتج</th>
                                     <th>الكمية</th>
                                     <th>نوع العملية</th>
-                                    <th>الجهة</th>
+                                    <th>السعر</th>
                                     <th>التاريخ</th>
                                 </tr>
                             </thead>
@@ -60,7 +60,7 @@
                                         <td>{{ $delivery->item->title }}</td>
                                         <td>{{ $delivery->qty }}</td>
                                         <td>تسليمات</td>
-                                        <td>{{ $delivery->side_name }}</td>
+                                        <td>{{ $delivery->price_of_sale * $delivery->qty}}</td>
                                         <td>{{ $delivery->created_at->format('Y-m-d') }}</td>
                                     </tr>
                                     @isset($delivery->itemReturn)
@@ -70,7 +70,7 @@
                                                 <td>{{ $returned_item->item->title }}</td>
                                                 <td>{{ $returned_item->qty }}</td>
                                                 <td>مرتجعات</td>
-                                                <td>{{ $delivery->side_name }}</td>
+                                                <td>{{ $delivery->price_of_sale * $returned_item->qty}}</td>
                                                 <td>{{ $returned_item->created_at->format('Y-m-d') }}</td>
                                             </tr>
                                         @endforeach

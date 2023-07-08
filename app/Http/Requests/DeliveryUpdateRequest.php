@@ -14,8 +14,8 @@ class DeliveryUpdateRequest extends MasterRequest
     public function rules(): array
     {
         return [
-            'recipient_name' => 'required',
-            'side_name' => 'required',
+            'customer_name' => 'nullable',
+            'customer_phone' => 'nullable|numeric',
             'notes' => 'nullable|min:4',
             'qty' => 'required|numeric|gt:0',
         ];

@@ -37,14 +37,22 @@ class ItemController extends MasterController
         //to date
         else if (!$request->from && $request->to)
             $items->whereDate('created_at', '<=',  $request->to);
-        //return data desc
         if (!$this->isAdmin())
             $items->allowed();
+        //return data desc
         $items = $items->latest()->paginate(20);
         return view('items.items', ['items' => $items]);
     }
 
-
+    public function notInStock()
+    {
+        $items = Item::whereQty(0);
+        if (!$this->isAdmin())
+            $items->allowed();
+        //return data desc
+        $items = $items->latest()->paginate(20);
+        return view('items.items', ['items' => $items]);
+    }
     public function create()
     {
         return redirect()->back();

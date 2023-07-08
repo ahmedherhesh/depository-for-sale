@@ -16,8 +16,8 @@
     </div>
     <div class="card-body">
         <h5 class="card-title text-center mb-4 ">{{ $delivery->item->title }} </h5>
-        <p class="card-text m-0 pb-1 pe-1"><i class="fa-regular fa-user ps-2"></i>{{ $delivery->recipient_name }}</p>
-        <p class="card-text m-0 p-1 border-top"><i class="fa-regular fa-circle-dot ps-2"></i>{{ $delivery->side_name }}
+        <p class="card-text m-0 pb-1 pe-1"><i class="fa-regular fa-user ps-2"></i>{{ $delivery->customer_name }}</p>
+        <p class="card-text m-0 p-1 border-top"><i class="fa-regular fa-circle-dot ps-2"></i>{{ $delivery->phone }}
         </p>
         <p class="card-text m-0 p-1 border-top"><i class="fa-regular fa-note-sticky ps-2"></i>{{ $delivery->notes }}
         </p>

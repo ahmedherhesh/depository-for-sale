@@ -16,8 +16,9 @@ class Item extends Model
         'depot_id',
         'title',
         'notes',
-        'file',
+        'image',
         'price',
+        'price_of_sale',
         'qty',
         'allowed_qty',
         'status',
@@ -32,16 +33,16 @@ class Item extends Model
     {
         return $this->belongsTo(Category::class, 'sub_cat_id');
     }
-    function getFileAttribute($file)
+    function getImageAttribute($image)
     {
-        return $this->attributes['file'] ? asset("uploads/files/$file") : null;
+        return $this->attributes['image'] ? asset("uploads/images/$image") : null;
     }
 
-    function setFileAttribute($file)
+    function setImageAttribute($image)
     {
-        $file_name =  rand(1000, 9999) . time() . '.' . $file->extension();
-        $file->move(public_path("uploads/files"), $file_name);
-        $this->attributes['file'] = $file_name;
+        $image_name =  rand(1000, 9999) . time() . '.' . $image->extension();
+        $image->move(public_path("uploads/images"), $image_name);
+        $this->attributes['image'] = $image_name;
     }
     function scopeAllowed($query)
     {

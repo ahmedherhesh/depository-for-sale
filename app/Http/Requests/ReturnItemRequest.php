@@ -18,7 +18,7 @@ class ReturnItemRequest extends MasterRequest
             'item_id' => 'required|exists:items,id',
             'returned_item_id' => 'nullable|exists:item_returns,id',
             'delivery_id' => 'required|exists:deliveries,id',
-            'recipient_name' => 'required',
+            'customer_name' => 'nullable',
             'notes' => 'nullable:min:4',
             'qty' => 'required|min:1|gt:0',
             'status' => 'required|in:new,used,expired',

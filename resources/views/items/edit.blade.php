@@ -100,11 +100,19 @@
                     @endif
                 </div>
                 <div class="mb-2">
-                    <label for="price" class="form-label">السعر</label>
+                    <label for="price" class="form-label">السعر الأصلي</label>
                     <input type="number" class="form-control" id="price" name="price" autocomplete="off"
                         value="{{ $item->price }}">
                     @if ($errors->has('price'))
                         <span class="text-danger text-direction-rtl">{{ $errors->first('price') }}</span>
+                    @endif
+                </div>
+                <div class="mb-2">
+                    <label for="price_of_sale" class="form-label">سعر البيع</label>
+                    <input type="number" class="form-control" id="price_of_sale" name="price_of_sale" autocomplete="off"
+                        value="{{ $item->price_of_sale }}">
+                    @if ($errors->has('price_of_sale'))
+                        <span class="text-danger text-direction-rtl">{{ $errors->first('price_of_sale') }}</span>
                     @endif
                 </div>
                 <div class="mb-2">
@@ -113,6 +121,16 @@
                         value="{{ $item->created_at->format('Y-m-d') }}" autocomplete="off">
                     @if ($errors->has('created_at'))
                         <span class="text-danger text-direction-rtl">{{ $errors->first('created_at') }}</span>
+                    @endif
+                </div>
+                <div class="mb-2">
+                    <label for="formImage" class="form-label d-block p-1 mt-3 rounded-3">
+                        <img src="{{ asset('imgs/upload_file.svg') }}" alt="">
+                        <span>اضغط هنا لإختيار صورة</span>
+                    </label>
+                    <input class="form-control d-none" type="file" id="formImage" name="image">
+                    @if ($errors->has('image'))
+                        <span class="text-danger text-direction-rtl">{{ $errors->first('image') }}</span>
                     @endif
                 </div>
                 <div class="text-center mt-3">

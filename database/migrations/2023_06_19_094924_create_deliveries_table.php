@@ -16,9 +16,11 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('item_id');
             $table->unsignedBigInteger('depot_id');
-            $table->string('recipient_name')->nullable();
-            $table->string('side_name')->nullable();
+            $table->string('customer_name')->nullable();
+            $table->string('customer_phone')->nullable();
             $table->longText('notes')->nullable();
+            $table->double('price');
+            $table->double('price_of_sale');
             $table->enum('status', ['new', 'used', 'expired']);
             $table->double('qty');
             $table->timestamps();

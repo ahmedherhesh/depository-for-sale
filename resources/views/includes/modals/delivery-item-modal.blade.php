@@ -10,19 +10,19 @@
                     @csrf
                     <input type="hidden" name="item_id" id="item_id">
                     <div class="mb-2">
-                        <label for="recipient_name" class="form-label">اسم المستلم</label>
-                        <input type="text" class="form-control" id="recipient_name" name="recipient_name" autocomplete="off"
-                            value="{{ old('recipient_name') }}">
-                        @if ($errors->has('recipient_name'))
-                            <span class="text-danger text-direction-rtl">{{ $errors->first('recipient_name') }}</span>
+                        <label for="customer_name" class="form-label">اسم المستلم</label>
+                        <input type="text" class="form-control" id="customer_name" name="customer_name" autocomplete="off"
+                            value="{{ old('customer_name') }}">
+                        @if ($errors->has('customer_name'))
+                            <span class="text-danger text-direction-rtl">{{ $errors->first('customer_name') }}</span>
                         @endif
                     </div>
                     <div class="mb-2">
-                        <label for="side_name" class="form-label">الجهة الموجه إليها</label>
-                        <input type="text" class="form-control" id="side_name" name="side_name" autocomplete="off"
-                            value="{{ old('side_name') }}">
-                        @if ($errors->has('side_name'))
-                            <span class="text-danger text-direction-rtl">{{ $errors->first('side_name') }}</span>
+                        <label for="customer_phone" class="form-label">رقم الموبايل</label>
+                        <input type="number" class="form-control" id="customer_phone" name="customer_phone" autocomplete="off"
+                            value="{{ old('customer_phone') }}">
+                        @if ($errors->has('customer_phone'))
+                            <span class="text-danger text-direction-rtl">{{ $errors->first('customer_phone') }}</span>
                         @endif
                     </div>
                     <div class="mb-2">

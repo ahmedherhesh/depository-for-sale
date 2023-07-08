@@ -12,6 +12,12 @@
             </a>
         </li>
         <li class="nav-item">
+            <a class="nav-link @if (strpos(url()->current(), '/not-in-stock')) active @endif" aria-current="page"
+                href="{{ route('items.not.in.stock') }}">
+                <img width="30" src="{{ asset('imgs/remove_done.svg') }}" alt=""> <span> النواقص </span>
+            </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link @if (strpos(url()->current(), '/reports') != '' && request()->inventory == 1) active @endif" aria-current="page"
                 href="{{ route('reports') }}?inventory=1">
                 <img src="{{ asset('imgs/widgets.svg') }}" alt=""> <span> جرد المخزن </span>

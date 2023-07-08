@@ -12,7 +12,7 @@ class ItemReturn extends Model
         'user_id',
         'item_id',
         'delivery_id',
-        'recipient_name',
+        'customer_name',
         'notes',
         'qty',
         'status',
@@ -27,7 +27,7 @@ class ItemReturn extends Model
     public function scopeAllowed($query){
         $user = session()->get('user');
         //orWhereHas for query continue in diffrent table 
-        return $query->orWhereHas('item',function($query) use($user){
+        return $query->WhereHas('item',function($query) use($user){
             $query->whereDepotId($user->depot_id);
         });
     }

@@ -96,11 +96,19 @@
                         @endif
                     </div>
                     <div class="mb-2">
-                        <label for="price" class="form-label">السعر</label>
+                        <label for="price" class="form-label">السعر الأصلي</label>
                         <input type="number" class="form-control" id="price" name="price" autocomplete="off"
-                            value="{{ old('price') }}">
+                            value="">
                         @if ($errors->has('price'))
                             <span class="text-danger text-direction-rtl">{{ $errors->first('price') }}</span>
+                        @endif
+                    </div>
+                    <div class="mb-2">
+                        <label for="price_of_sale" class="form-label">سعر البيع</label>
+                        <input type="number" class="form-control" id="price_of_sale" name="price_of_sale" autocomplete="off"
+                            value="">
+                        @if ($errors->has('price_of_sale'))
+                            <span class="text-danger text-direction-rtl">{{ $errors->first('price_of_sale') }}</span>
                         @endif
                     </div>
                     <div class="mb-2">
@@ -111,16 +119,16 @@
                             <span class="text-danger text-direction-rtl">{{ $errors->first('created_at') }}</span>
                         @endif
                     </div>
-                    {{-- <div class="mb-2">
-                        <label for="formFile" class="form-label d-block ctm-btn p-1 mt-3 rounded-3">
+                    <div class="mb-2">
+                        <label for="formImage" class="form-label d-block p-1 mt-3 rounded-3">
                             <img src="{{ asset('imgs/upload_file.svg') }}" alt="">
-                            <span>اضغط هنا لإختيار الملف</span>
+                            <span>اضغط هنا لإختيار صورة</span>
                         </label>
-                        <input class="form-control d-none" type="file" id="formFile" name="file">
+                        <input class="form-control d-none" type="file" id="formImage" name="image">
+                        @if ($errors->has('image'))
+                            <span class="text-danger text-direction-rtl">{{ $errors->first('image') }}</span>
+                        @endif
                     </div>
-                    @if ($errors->has('file'))
-                        <span class="text-danger text-direction-rtl">{{ $errors->first('file') }}</span>
-                    @endif --}}
 
                     <div class="text-center mt-3">
                         <button type="submit" class="btn ctm-btn">إضافة</button>

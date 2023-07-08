@@ -58,6 +58,7 @@ Route::group(['middleware' => 'auth.web'], function () {
     Route::resource('items', ItemController::class);
     Route::post('item-update', [ItemController::class, 'update'])->name('item.update');
     Route::get('items/{id}/delete', [ItemController::class, 'destroy'])->name('item.delete');
+    Route::get('not-in-stock', [ItemController::class, 'notInStock'])->name('items.not.in.stock');
 
     Route::resource('categories', CategoryController::class);
     Route::post('category-update', [CategoryController::class, 'update'])->name('category.update');

@@ -41,7 +41,7 @@ class DeliveryController extends MasterController
         if ($request->q)
             $deliveries->whereHas('item', function ($query) use ($request) {
                 $query->where('title', 'LIKE', '%' . $request->q . '%');
-            })->orWhere('recipient_name', 'LIKE', '%' . $request->q . '%');
+            })->orWhere('customer_name', 'LIKE', '%' . $request->q . '%');
 
         $qty = function ($item_return) {
             $num = 0;
@@ -64,6 +64,8 @@ class DeliveryController extends MasterController
             $data['depot_id'] = $item->depot_id;
             $data['item_id'] = $item->id;
             $data['status']  = $item->status;
+            $data['price']  = $item->price;
+            $data['price_of_sale']  = $item->price_of_sale;
             $delivery = Delivery::create($data);
             if ($delivery) {
                 $item->update(['qty' => ((int)$item->qty - (int)$request->qty)]);

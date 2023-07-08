@@ -15,7 +15,7 @@ class ReturnItemUpdateRequest extends MasterRequest
     public function rules(): array
     {
         return [
-            'recipient_name' => 'required',
+            'customer_name' => 'nullable',
             'notes' => 'nullable:min:4',
             'qty' => 'required|min:1|gt:0',
             'status' => 'required|in:new,used,expired',
