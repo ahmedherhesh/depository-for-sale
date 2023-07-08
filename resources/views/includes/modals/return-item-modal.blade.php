@@ -11,11 +11,11 @@
                     <input type="hidden" name="delivery_id" id="delivery_id">
                     <input type="hidden" name="item_id" id="item_id">
                     <div class="mb-2">
-                        <label for="recipient_name" class="form-label">اسم الشخص</label>
-                        <input type="text" class="form-control" id="recipient_name" name="recipient_name"
-                            autocomplete="off" value="{{ old('recipient_name') }}">
-                        @if ($errors->has('recipient_name'))
-                            <span class="text-danger text-direction-rtl">{{ $errors->first('recipient_name') }}</span>
+                        <label for="customer_name" class="form-label">اسم الشخص</label>
+                        <input type="text" class="form-control" id="customer_name" name="customer_name"
+                            autocomplete="off" value="{{ old('customer_name') }}">
+                        @if ($errors->has('customer_name'))
+                            <span class="text-danger text-direction-rtl">{{ $errors->first('customer_name') }}</span>
                         @endif
                     </div>
                     <div class="mb-2">
@@ -34,20 +34,12 @@
                     <div class="mb-2">
                         <label for="" class="mb-2">إضافة للمخزن</label><br>
                         <div class="border rounded p-2">
-                            <input class="form-check-input" type="radio" name="inStock" value="1"
-                                id="yes">
+                            <input class="form-check-input" type="radio" name="inStock" value="1" id="yes">
                             <label for="yes" class="ms-4">نعم</label>
                             <input class="form-check-input" type="radio" name="inStock" value="0" id="no"
                                 checked>
                             <label for="no">لا</label>
                         </div>
-                    </div>
-                    <div class="mb-2">
-                        <label for="notes" class="form-label">رأي اللجنة</label>
-                        <textarea class="form-control" id="notes" name="notes">{{ old('title') }}</textarea>
-                        @if ($errors->has('notes'))
-                            <span class="text-danger text-direction-rtl">{{ $errors->first('notes') }}</span>
-                        @endif
                     </div>
                     <div class="mb-2">
                         <label for="qty" class="form-label">الكمية</label>
@@ -57,7 +49,7 @@
                             <span class="text-danger text-direction-rtl">{{ $errors->first('qty') }}</span>
                         @endif
                     </div>
-                    
+
                     <div class="text-center">
                         <button class="btn ctm-btn mt-3">استرداد</button>
                     </div>
