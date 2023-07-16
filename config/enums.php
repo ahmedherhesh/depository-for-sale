@@ -13,8 +13,8 @@ return [
         'admin' => 'أدمن',
     ],
     'search_in' => [
-        // url('items') => 'المنتجات',
-        // url('deliveries') => 'التسليمات',
-        // url('returned-items') => 'المرتجعات',
+        url('items') => 'المنتجات',
+        url('deliveries') => 'التسليمات',
+        url('returned-items') => 'المرتجعات',
     ]
 ];

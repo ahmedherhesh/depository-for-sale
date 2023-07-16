@@ -14,10 +14,13 @@
             <div class="ctm-progress-bar p-2 bg-light" count='{{ $returned_items_count }}'>المرتجعات</div>
             <div class="ctm-progress-bar p-2 bg-light" count='{{ $deliveries_count + $returned_items_count }}'>التقارير
             </div>
-            <div class="ctm-progress-bar p-2 bg-light" count='{{ $month_profits }}'>ارباح الشهر</div>
-            <div class="ctm-progress-bar p-2 bg-light" count='{{ $three_months_profits }}'>ارباح 3 اشهر</div>
-            <div class="ctm-progress-bar p-2 bg-light" count='{{ $six_months_profits }}'>ارباح 6 اشهر</div>
-            <div class="ctm-progress-bar p-2 bg-light" count='{{ $year_profits }}'>ارباح السنة</div>
+            @if (in_array($user->role, ['super-admin', 'admin']))
+                <div class="ctm-progress-bar p-2 bg-light" count='{{ $month_profits }}'>ارباح الشهر</div>
+                <div class="ctm-progress-bar p-2 bg-light" count='{{ $three_months_profits }}'>ارباح 3 اشهر</div>
+                <div class="ctm-progress-bar p-2 bg-light" count='{{ $six_months_profits }}'>ارباح 6 اشهر</div>
+                <div class="ctm-progress-bar p-2 bg-light" count='{{ $year_profits }}'>ارباح السنة</div>
+            @endif
+
         </div>
         <div class="d-flex justify-content-center align-items-center mt-5">
             @forelse ($items as $item)

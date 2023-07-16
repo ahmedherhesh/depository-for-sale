@@ -13,6 +13,7 @@
 
     </div>
     <div class="card-body text-center">
+        <img class="card-img" src="{{$item->image}}" alt="" srcset="">
         <h5 class="card-title">{{ $item->title }} </h5>
         <p class="card-text">{{ $item->notes }}</p>
         @if ($item->qty)

@@ -2,7 +2,7 @@
     <span class="close-icon"><img src="{{ asset('imgs/close.svg') }}" alt=""></span>
     <a href="{{ route('home') }}" class="sidebar-banner d-flex align-items-center gap-2">
         <span class="banner-logo"><img src="{{ asset('imgs/store.svg') }}" alt=""></span>
-        <h3 class="banner-title m-0">مخزن العهدة</h3>
+        <h3 class="banner-title m-0">المخزن</h3>
     </a>
     <ul class="navbar-nav">
         <li class="nav-item">

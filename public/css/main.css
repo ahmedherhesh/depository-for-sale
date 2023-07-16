@@ -159,7 +159,10 @@ a {
     white-space: nowrap;
     height: 20px;
 }
-
+.card-img{
+    height: 150px;
+    border-radius: 20px;
+}
 .card.book .book-img,
 .card.category .category-img {
     position: relative;
